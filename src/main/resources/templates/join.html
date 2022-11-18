@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join</title>
+</head>
+<body th:attr="style='background-color: ' + ${color}">
+<h1 th:text="${cohort}"></h1>
+<h1 th:text="${color}"></h1>
+
+
+<form action="/join" method="post">
+    <input type="text" name="cohort" id="cohort-ip" class="field" />
+    <input type="text" name="color" id="color-ip" class="field" />
+    <button>Join now</button>
+</form>
+
+</body>
+</html>
