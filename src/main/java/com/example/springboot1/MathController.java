@@ -1,10 +1,7 @@
 package com.example.springboot1;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MathController {
@@ -16,13 +13,13 @@ public class MathController {
         return number+ " plus one is "+(number+1)+ "!";
     }
 
-    @RequestMapping(method = RequestMethod.GET, path="/subtract/{num1}/{num2}")
+    @GetMapping(path="/subtract/{num1}/from/{num2}")
     @ResponseBody
     public int subtractTwoNumbers(@PathVariable int num1, @PathVariable int num2){
         return (num1-num2);
 
     }
-    @RequestMapping(method = RequestMethod.GET, path="/multiply/{numb1}/{numb2}")
+    @GetMapping(path="/multiply/{numb1}/{numb2}")
     @ResponseBody
     public int multiplyTwoNumbers(@PathVariable int numb1, @PathVariable int numb2){
         return numb1*numb2;
