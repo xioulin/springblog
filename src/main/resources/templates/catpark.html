@@ -3,15 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Dog park</title>
+  <meta charset="UTF-8">
+  <title>Catpark</title>
 </head>
 <body>
-<h1>Dog Park</h1>
+<h1>Cat Park</h1>
 <ul>
-    <li th:each="dog : ${dogs}" th:text="${dog}"></li>
+  <li th:each="cat : ${cats}" th:text="${cat}"></li>
 </ul>
 <h1 th:if="${true}">Render me this!</h1>
+
 
 </body>
 </html>

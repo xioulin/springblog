@@ -1,4 +1,4 @@
-package com.example.springboot1;
+package com.example.springboot1.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
