@@ -1,11 +1,13 @@
 package com.example.springboot1.models;
 
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 public class AdCategory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -16,3 +18,4 @@ public class AdCategory {
     @ManyToMany(mappedBy = "categories")
     private List<Ad> ads;
 }
+

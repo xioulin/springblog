@@ -6,23 +6,28 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MathController {
 
-
-    @RequestMapping(method = RequestMethod.GET, path = "/add/{number}")
+    @GetMapping("/add/{num1}/and/{num2}")
     @ResponseBody
-    public String addOne(@PathVariable int number) {
-        return number+ " plus one is "+(number+1)+ "!";
+    public String addition(@PathVariable int num1, @PathVariable int num2) {
+        return "The sum of " + num1 +  " and " + num2 + " = "  + (num1 + num2);
     }
 
-    @GetMapping(path="/subtract/{num1}/from/{num2}")
+    @GetMapping("/subtract/{num1}/from/{num2}")
     @ResponseBody
-    public int subtractTwoNumbers(@PathVariable int num1, @PathVariable int num2){
-        return (num1-num2);
-
+    public int subtract(@PathVariable int num1, @PathVariable int num2) {
+        return num1 - num2;
     }
-    @GetMapping(path="/multiply/{numb1}/{numb2}")
-    @ResponseBody
-    public int multiplyTwoNumbers(@PathVariable int numb1, @PathVariable int numb2){
-        return numb1*numb2;
 
+    @GetMapping("/multiply/{num1}/and/{num2}")
+    @ResponseBody
+    public int multiply(@PathVariable int num1, @PathVariable int num2) {
+        return num1 * num2;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/divide/{num1}/by/{num2}")
+//    @GetMapping("/divide/{num1}/by/{num2}")
+    @ResponseBody
+    public double quotient(@PathVariable double num1, @PathVariable double num2) {
+        return num1 / num2;
     }
 }

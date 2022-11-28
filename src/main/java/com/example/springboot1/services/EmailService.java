@@ -1,4 +1,4 @@
-package services;
+package com.example.springboot1.services;
 
 
 import com.example.springboot1.models.Ad;
@@ -10,7 +10,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-@Service("EmailService")
+@Service
 public class EmailService {
 
     @Autowired
