@@ -4,7 +4,7 @@ import com.example.springboot1.models.Post;
 import com.example.springboot1.models.User;
 import com.example.springboot1.repositories.PostRepository;
 import com.example.springboot1.repositories.UserRepository;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -76,9 +76,9 @@ public class PostController {
     public String create(@ModelAttribute Post post){
 
 //        User user = userDao.getById(1L);
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        User user = userDao.getReferenceById(1L);
-        post.setUser(currentUser);
+//        post.setUser(currentUser);
         postDao.save(post);
 
         emailService.prepareAndSend(post, "New Post Created!", "A new post has been created! Here is the title of your new post! Title: " + post.getTitle());

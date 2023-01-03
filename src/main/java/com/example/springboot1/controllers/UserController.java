@@ -3,7 +3,7 @@ package com.example.springboot1.controllers;
 import com.example.springboot1.models.User;
 import com.example.springboot1.repositories.UserRepository;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +15,12 @@ public class UserController {
 
     private UserRepository userDao;
 
-    private PasswordEncoder passwordEncoder;
+//    private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
-        this.userDao = userDao;
-        this.passwordEncoder = passwordEncoder;
-    }
+//    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
+//        this.userDao = userDao;
+//        this.passwordEncoder = passwordEncoder;
+//    }
 
     @GetMapping("/sign-up")
     public String showSignUpForm(Model model) {
@@ -31,9 +31,9 @@ public class UserController {
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user) {
         // Hash the password using the encode method.
-        String hash = passwordEncoder.encode(user.getPassword());
+//        String hash = passwordEncoder.encode(user.getPassword());
         // Set the password to the hashed version.
-        user.setPassword(hash);
+//        user.setPassword(hash);
         // Save the user to the DB.
         userDao.save(user);
         return "redirect:/login";

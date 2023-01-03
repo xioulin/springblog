@@ -6,13 +6,15 @@
     <meta charset="UTF-8">
     <title>Join</title>
 </head>
-<body th:attr="style='background-color: ' + ${color}">
+<body>
 <h1 th:text="${cohort}"></h1>
 <h1 th:text="${color}"></h1>
 
 
-<form action="/join" method="post">
+<form action="/join" method="POST">
+    <a>cohort</a>
     <input type="text" name="cohort" id="cohort-ip" class="field" />
+    <a>color</a>
     <input type="text" name="color" id="color-ip" class="field" />
     <button>Join now</button>
 </form>

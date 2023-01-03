@@ -8,6 +8,7 @@ import com.example.springboot1.repositories.OwnerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import com.example.springboot1.services.AdService;
 import com.example.springboot1.services.EmailService;
 
@@ -16,6 +17,11 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+
+    @GetMapping("/homesite")
+    public String welcomeHome() {
+        return "home";
+    }
     // Establish adsDao instance property
     private final AdRepository adsDao;
     private final OwnerRepository ownerDao;
@@ -33,10 +39,10 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    @ResponseBody
     public String landing() {
-        return "This is the landing page!";
+        return "landingPage";
     }
+
 
     @GetMapping("/dogpark")
     public String dogpark(Model model) {
@@ -47,11 +53,7 @@ public class HomeController {
         model.addAttribute("dogs", dogs);
         return "dogPark";
     }
-    @GetMapping("/hello/{name}")
-    public String sayHello(@PathVariable String name, Model model) {
-        model.addAttribute("name", name);
-        return "hello";
-    }
+
     @GetMapping("/ads")
     public String allAds(Model model) {
         List<Ad> ads = adService.getAds();
@@ -67,6 +69,17 @@ public class HomeController {
     public String welcomeHome(Model model){
         model.addAttribute("name",model);
         return "home";
+    }
+    @GetMapping("/join")
+    public String showJoinForm() {
+        return "join";
+    }
+
+    @PostMapping("/join")
+    public String joinCohort(@RequestParam(name = "cohort") String cohort, @RequestParam(name = "color") String color, Model model) {
+        model.addAttribute("color", color);
+        model.addAttribute("cohort", "Welcome to " + cohort + "!");
+        return "join";
     }
     @GetMapping("/ads/create")
     public String showCreateForm(Model model) {
